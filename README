@@ -1,0 +1,26 @@
+buedaLib is a library is a library to access the BuedaSemantic API. In order to use the API you will need an API. Please go to http://www.bueda.com/accounts/registration/register to get an API Key. 
+
+The Bueda Semantic API allows you to send in tags and get back normalized tags, clean tags, semantic tags and categories.
+
+Using the Bueda API is simple. The Bueda Java Library uses Gson for json decoding. If you already have Gson in your porject, just add buedaLibraryCore.jar to your classpath.
+
+Use buedaLibFull.jar if you don't want to deal with extra dependencies. Gson is pacakged here
+
+
+Usage Example:
+
+Bueda bue = new Bueda(apiKey);
+BuedaResult bueResult = bue.enhance(tags);
+if (bueResult.getStatus()=="true"){
+    System.out.println("Query: " + bueResult.getQuery());
+    System.out.println("Split Tags: " + bueResult.getSplit_tags());
+    System.out.println("Clean Tags: " + bueResult.getCleanup());
+    System.out.println("Semantic Tags: " + bueResult.getSemantic());
+ 
+ }
+ else{
+   System.out.println("Error: " + bueResult.getMessage());
+ }
+
+
+
