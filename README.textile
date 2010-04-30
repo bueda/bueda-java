@@ -1,0 +1,31 @@
+h1. Bueda Java Library - buedaLib
+
+buedaLib is a library is a library to access the Bueda API. The library requires
+an API key from http://bueda.com.
+
+The Bueda API allows you to send in tags and get back normalized tags,
+clean tags, semantic tags and categories.
+
+h2. Dependencies
+
+ * Gson
+
+Optionally, use the version of the Bueda JAR that includes Gson.
+
+h2. Usage
+
+<pre>
+import com.bueda.api.Bueda;
+import com.bueda.api.BuedaResult;
+
+Bueda client = new Bueda(apiKey);
+BuedaResult result = client.enhance(tags);
+if(result.getStatus() == "true") {
+    System.out.println("Query: " + result.getQuery());
+    System.out.println("Split Tags: " + result.getSplit_tags());
+    System.out.println("Clean Tags: " + result.getCleanup());
+    System.out.println("Semantic Tags: " + result.getSemantic());
+} else {
+    System.out.println("Error: " + result.getMessage());
+}
+</pre>
